@@ -1,6 +1,8 @@
 const { app, BrowserWindow } = require( 'electron' )
 const Twitter = require( 'twitter' )
 
+app.on( 'window-all-closed', () => app.quit() )
+
 const createWindow = options => {
   return new Promise( ( resolve, _ ) => {
     app.on( 'ready', () => {
