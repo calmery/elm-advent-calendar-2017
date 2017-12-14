@@ -22,8 +22,17 @@ const setupStream = window => {
     track: '#elm'
   }, stream => {
     stream.on( 'data', event => {
-      const tweet = event.text
-      window.webContents.send( 'newTweet', tweet )
+      const tweet = {
+          text: event.text,
+          created_at: event.created_at,
+          user: {
+            profile_image_url: event.user.profile_image_url,
+            name: event.user.name,
+            screen_name: event.user.screen_name,
+          }
+      }
+
+      window.webContents.send( 'newTweet', JSON.stringify( tweet ) )
     } )
   } )
 }
