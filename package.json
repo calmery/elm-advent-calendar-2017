@@ -1,13 +1,19 @@
 {
-  "main": "index",
   "scripts": {
-    "start": "npm run build && electron .",
-    "build": "elm make Main.elm --output app.js",
-    "prettify": "elm-format . --yes"
+    "start": "npm run build && electron dist/index",
+    "build": "rimraf dist && webpack",
+    "prettify": "elm-format src/public/elm --yes"
   },
   "devDependencies": {
+    "css-loader": "^0.28.7",
     "elm": "^0.18.0",
-    "elm-format": "^0.6.1-alpha"
+    "elm-format": "^0.6.1-alpha",
+    "elm-webpack-loader": "^4.4.0",
+    "file-loader": "^1.1.5",
+    "rimraf": "^2.6.2",
+    "style-loader": "^0.19.1",
+    "webpack": "^3.10.0",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "electron": "^1.7.9"

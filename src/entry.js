@@ -11,5 +11,5 @@ const createWindow = options => {
 
 createWindow()
   .then( window => {
-    window.loadURL( `file://${__dirname}/index.html` )
+    window.loadURL( `file://${__dirname}/public/index.html` )
   } )
