@@ -2,8 +2,8 @@
   "main": "index",
   "scripts": {
     "start": "electron dist/index",
-    "build": "rimraf dist && webpack && npm run pack",
-    "pack": "electron-packager dist elm-hashtag --platform=darwin --arch=x64 --version=1.7.9 --icon=src/elm.icns --overwrite",
+    "build": "rimraf dist && webpack",
+    "pack": "npm run build && electron-packager dist elm-hashtag --platform=darwin --arch=x64 --version=1.7.9 --icon=src/elm.icns --overwrite",
     "prettify": "elm-format src/public/elm --yes"
   },
   "devDependencies": {
