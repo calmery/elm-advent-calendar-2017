@@ -1,0 +1,15 @@
+{
+  "main": "index",
+  "scripts": {
+    "start": "npm run build && electron .",
+    "build": "elm make Main.elm --output app.js",
+    "prettify": "elm-format . --yes"
+  },
+  "devDependencies": {
+    "elm": "^0.18.0",
+    "elm-format": "^0.6.1-alpha"
+  },
+  "dependencies": {
+    "electron": "^1.7.9"
+  }
+}
