@@ -1,11 +1,15 @@
 {
+  "main": "index",
   "scripts": {
-    "start": "npm run build && electron dist/index",
-    "build": "rimraf dist && webpack",
+    "start": "electron dist/index",
+    "build": "rimraf dist && webpack && npm run pack",
+    "pack": "electron-packager dist elm-hashtag --platform=darwin --arch=x64 --version=1.7.9 --icon=src/elm.icns --overwrite",
     "prettify": "elm-format src/public/elm --yes"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^4.3.0",
     "css-loader": "^0.28.7",
+    "electron-packager": "^10.1.0",
     "elm": "^0.18.0",
     "elm-format": "^0.6.1-alpha",
     "elm-webpack-loader": "^4.4.0",

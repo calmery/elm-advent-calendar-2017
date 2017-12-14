@@ -2,6 +2,7 @@ const path = require( 'path' )
 
 const webpack = require( 'webpack' )
 const merge = require( 'webpack-merge' )
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' )
 
 const resolve = filePath => path.resolve( __dirname, filePath )
 
@@ -25,6 +26,11 @@ const backend = {
   node: {
     __dirname: false,
   },
+  plugins: [
+    new CopyWebpackPlugin( [
+      { from: resolve( 'package.json' ), to: resolve( 'dist/package.json' ) },
+    ] )
+  ],
   target: 'node'
 }
 
