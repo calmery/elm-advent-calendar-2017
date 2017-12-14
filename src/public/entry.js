@@ -10,3 +10,7 @@ const app = Elm.Main.fullscreen()
 ipcRenderer.on( 'newTweet', ( _, tweet ) => {
   app.ports.newTweet.send( tweet )
 } )
+
+app.ports.notification.subscribe( message => {
+  new Notification( message )
+} )

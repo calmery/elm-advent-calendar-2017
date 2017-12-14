@@ -8,6 +8,9 @@ import Json.Decode exposing (..)
 port newTweet : (String -> msg) -> Sub msg
 
 
+port notification : String -> Cmd msg
+
+
 type alias Tweet =
     { user : User
     , text : String
@@ -66,7 +69,7 @@ update msg model =
             in
                 case decoded of
                     Ok tweet ->
-                        ( List.append [ tweet ] <| List.take 100 model, Cmd.none )
+                        ( List.append [ tweet ] <| List.take 100 model, notification tweet.text )
 
                     Err _ ->
                         ( model, Cmd.none )
