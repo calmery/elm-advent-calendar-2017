@@ -37,9 +37,15 @@ const setupStream = window => {
   } )
 }
 
-createWindow()
+createWindow( {
+  width: 360,
+  height: 600,
+} )
   .then( window => {
     window.loadURL( `file://${__dirname}/public/index.html` )
-    window.openDevTools()
+    window.setMaximumSize( 360, 600 )
+    window.setMinimumSize( 360, 600 )
+    window.setMenu( null )
+    window.show()
     setupStream( window )
   } )
