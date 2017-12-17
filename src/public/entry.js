@@ -1,4 +1,4 @@
-import { ipcRenderer } from 'electron'
+const { ipcRenderer } = require( 'electron' )
 
 const Elm = require( './elm/Main.elm' )
 
